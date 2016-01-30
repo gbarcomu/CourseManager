@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+	  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+<mapper namespace='com.courseManager.model.mappers.Mapper'>
+
+	<resultMap type="Course" id="CourseResult">
+
+		<result property='title' column='title' />
+		<result property='isActive' column='isActive' />
+		<result property='level' column='level' />
+		<result property='hours' column='hours' />
+		<result property='idProfessor' column='idProfessor' />
+
+	</resultMap>
+
+	<select id="getAllCourses" resultMap="CourseResult">
+
+		select title, level, hours, idProfessor
+		from course
+		where isActive = true
+
+	</select>
+
+	<resultMap type="Professor" id="ProfessorResult">
+
+		<result property='id' column='id' />
+		<result property='name' column='name' />
+
+	</resultMap>
+
+	<select id="getAllProfessors" resultMap="ProfessorResult">
+
+		select id, name
+		from professor;
+
+	</select>
+	
+	<insert id="insertCourse" parameterType = "Course">
+	
+	insert into course(title,isActive,hours,level,idProfessor) 
+	values (#{title},#{isActive},#{level},#{hours},#{idProfessor});
+
+	</insert>
+
+</mapper>
