@@ -3,16 +3,35 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>HOLA HOLA</title>
+	<title>Course Manager</title>
 </h:head>
 <h:body>
-	<h3>NO VENGAS SOLA</h3>
-	
-	#{viewController.sayHello()}
-	
-	
+
+	<h:form>
+		<p:dataTable var="course" value="#{viewController.getCourses()}"
+			paginator="true" rows="4">
+			<f:facet name="header">
+            Single Column Sort
+        </f:facet>
+			<p:column headerText="Title" sortBy="#{course.title}">
+				<h:outputText value="#{course.title}" />
+			</p:column>
+
+			<p:column headerText="Level">
+				<h:outputText value="#{course.level}" />
+			</p:column>
+
+			<p:column headerText="Hours">
+				<h:outputText value="#{course.hours}" />
+			</p:column>
+		</p:dataTable>
+
+	</h:form>
+
 </h:body>
 </html>
+
