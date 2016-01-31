@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.courseManager.controller.Info;
 import com.courseManager.model.domain.Course;
+import com.courseManager.model.domain.Professor;
 import com.courseManager.model.service.Service;
 
 @Component
@@ -26,5 +27,12 @@ public class InfoImpl implements Info {
 		Service service = new Service();
 		
 		return service.getAllCourses();
+	}
+
+	public List<Professor> getProfessors() {
+		
+		Service service = new Service();
+		
+		return service.getAllProfessors();
 	}
 }

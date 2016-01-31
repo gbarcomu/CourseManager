@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>New Course</title>
+</h:head>
+<h:body>
+
+	<h:form>
+
+		<h:panelGrid id="grid" cellpadding="5" columns="2"
+			style="margin-bottom:10px">
+
+			<p:outputLabel for="isActiveCourse" value="Is an active course?" />
+			<p:selectBooleanCheckbox id="isActiveCourse" itemLabel="Active" />
+
+
+			<p:outputLabel for="professor" value="Professor" />
+			<p:selectOneMenu id="professor" required="true" effect="fold"
+				editable="true">
+				<f:selectItems value="#{viewController.getProfessors()}"
+					var="professor" itemLabel="#{professor.name}" />
+			</p:selectOneMenu>
+
+			<p:outputLabel for="level" value="Level" />
+			<p:selectOneMenu id="level" required="true">
+				<f:selectItem itemLabel="Basic" itemValue="1" />
+				<f:selectItem itemLabel="Medium" itemValue="2" />
+				<f:selectItem itemLabel="Advanced" itemValue="3" />
+			</p:selectOneMenu>
+
+			<h:outputLabel for="hours" value="Hours" />
+			<p:spinner id="hours" />
+
+
+		</h:panelGrid>
+
+		<p:commandButton value="Add" id="submit"
+			actionListener="#{viewController.insertCourse}" ajax="false" />
+
+	</h:form>
+
+</h:body>
+</html>

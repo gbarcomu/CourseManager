@@ -15,7 +15,7 @@
 		<p:dataTable var="course" value="#{viewController.getCourses()}"
 			paginator="true" rows="4">
 			<f:facet name="header">
-            Single Column Sort
+            Course Catalogue
         </f:facet>
 			<p:column headerText="Title" sortBy="#{course.title}">
 				<h:outputText value="#{course.title}" />
@@ -31,6 +31,9 @@
 		</p:dataTable>
 
 	</h:form>
+
+	<p:button outcome="newCourse" value="New Course">
+	</p:button>
 
 </h:body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.courseManager.controller.Info;
 import com.courseManager.model.domain.Course;
+import com.courseManager.model.domain.Professor;
 
 
 @Component
@@ -17,6 +18,26 @@ public class ViewController {
 	@Autowired
 	Info info;
 	
+	private Professor professor;
+	
+	Course courseToInsert;
+	
+	public void insertCourse() {
+		
+		System.out.println("Inserting cool stuff");
+	}
+
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+
 	public void setInfo(Info info) {
 		
 		this.info = info;
@@ -25,6 +46,11 @@ public class ViewController {
 	public List<Course> getCourses() {
 		
 		return info.getCourses();
+	}
+	
+	public List<Professor> getProfessors() {
+		
+		return info.getProfessors();
 	}
 	
 	public String sayHello() {
