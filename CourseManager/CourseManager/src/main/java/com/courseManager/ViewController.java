@@ -18,26 +18,6 @@ public class ViewController {
 	@Autowired
 	Info info;
 	
-	private Professor professor;
-	
-	Course courseToInsert;
-	
-	public void insertCourse() {
-		
-		System.out.println("Inserting cool stuff");
-	}
-
-
-	public Professor getProfessor() {
-		return professor;
-	}
-
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
-
-
 	public void setInfo(Info info) {
 		
 		this.info = info;

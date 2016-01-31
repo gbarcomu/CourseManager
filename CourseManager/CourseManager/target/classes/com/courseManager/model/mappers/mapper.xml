@@ -38,7 +38,7 @@
 	<insert id="insertCourse" parameterType = "Course">
 	
 	insert into course(title,isActive,hours,level,idProfessor) 
-	values (#{title},#{isActive},#{level},#{hours},#{idProfessor});
+	values (#{title},#{isActive},#{hours},#{level},#{idProfessor});
 
 	</insert>
 

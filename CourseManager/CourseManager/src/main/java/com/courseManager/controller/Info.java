@@ -9,6 +9,7 @@ public interface Info {
 
 	public List<Course> getCourses();
 	public List<Professor> getProfessors();
+	public void insertCourse(Course course);
 	
 	public String showMessage();
 }

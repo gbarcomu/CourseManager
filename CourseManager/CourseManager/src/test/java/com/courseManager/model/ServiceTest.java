@@ -6,6 +6,7 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.primefaces.validate.bean.AssertTrueClientValidationConstraint;
 
 import com.courseManager.model.domain.Course;
 import com.courseManager.model.domain.Professor;
@@ -28,12 +29,12 @@ public class ServiceTest {
 	}
 	
 	@Test
-	public void testGetAllCourses() {
+	public void shouldReturnNotNullIfTryToObtainAllCourses() {
 		
 		List<Course> courses = service.getAllCourses();
 		
 		// Number of active courses
-		Assert.assertTrue(courses.size() == 5);
+		Assert.assertNotNull(courses);
 		
 		for (Course course : courses) {
 			
@@ -42,12 +43,11 @@ public class ServiceTest {
 	}
 	
 	@Test
-	public void testGetAllProfessors() {
+	public void shouldReturnNotNullIfTryToObtainAllProfessors() {
 		
 		List<Professor> professors = service.getAllProfessors();
 		
-		// Number of active courses
-		Assert.assertTrue(professors.size() == 7);
+		Assert.assertNotNull(professors);
 		
 		for (Professor professor : professors) {
 			
@@ -56,13 +56,18 @@ public class ServiceTest {
 	}
 	
 	@Test
-	public void testInsertCourse() {
+	public void shouldIncreaseCoursesNumberIfInsertNewCourse() {
 		
 		Course course = new Course();
 		
 		course.mock();
 		
+		int coursesBeforInsertion = service.getAllCourses().size();
+		
 		service.insertCourse(course);
-		//TODO in progress	
+		
+		Assert.assertTrue(service.getAllCourses().size() == coursesBeforInsertion + 1);
+		
+			
 	}
 }

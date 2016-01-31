@@ -11,7 +11,7 @@ public class Course {
 	public void mock() {
 		
 		this.title = "MockCourse";
-		this.isActive = false;
+		this.isActive = true;
 		this.level = 1;
 		this.hours = 10;
 		this.idProfessor = 1;
